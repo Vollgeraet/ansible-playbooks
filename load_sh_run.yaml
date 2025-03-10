@@ -20,7 +20,6 @@
         commands:
           - copy tftp://{{ tftp_server }}/{{ config_file }} running-config
       register: copy_result
-      # Ignoriere Fehler, wenn die Ausgabe "bytes copied" enthält
       failed_when: "'bytes copied' not in copy_result.stdout[0]"
 
     - name: Ergebnis anzeigen
